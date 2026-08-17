@@ -1,6 +1,6 @@
 <title>Política de Privacidad — Caos Total: Neon</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Política de privacidad de Caos Total: Neon. El juego no recopila, no almacena fuera de tu dispositivo ni comparte ningún dato personal.">
+<meta name="description" content="Política de privacidad de Caos Total: Neon. El juego no recopila, no almacena ni comparte ningún dato personal; solo hace conexiones limitadas para actualizaciones, cobros y guardado opcional en la nube.">
 
 <style>
   /* v5.86 — LA IDENTIDAD DEL JUEGO (encargo de Faussi: "que se vea profesional
@@ -117,7 +117,7 @@
     <p class="juego">Caos Total: Neon</p>
     <h1>Política de Privacidad</h1>
     <ul class="ficha">
-      <li><b>Última actualización:</b> 7 de agosto de 2026</li>
+      <li><b>Última actualización:</b> 17 de agosto de 2026</li>
       <li><b>Responsable:</b> CaosTotalGames</li>
       <li><b>Aplicación:</b> Caos Total: Neon <span class="nota">(com.caostotalgames.caostotal)</span></li>
       <li><b>Contacto:</b> <a href="mailto:amina.comunicaciones@gmail.com">amina.comunicaciones@gmail.com</a></li>
@@ -125,9 +125,7 @@
   </header>
 
   <div class="resumen">
-    <p><strong>En una frase:</strong> Caos Total: Neon no recopila, no almacena fuera de tu
-    dispositivo y no comparte ningún dato personal. El resto de este documento solo lo
-    explica en detalle porque Google Play exige una política pública.</p>
+    <p><strong>En una frase:</strong> Caos Total: Neon no recopila, no almacena y no comparte ningún dato personal tuyo. El juego sí hace unas pocas conexiones automáticas o que tú autorizas expresamente (comprobar actualizaciones, cobros de Google Play, guardado opcional en la nube), ninguna de las cuales envía información personal identificable. El resto de este documento lo explica en detalle porque Google Play exige una política pública.</p>
   </div>
 
   <h2>1. Qué datos recogemos</h2>
@@ -139,11 +137,7 @@
     <li>identificadores de publicidad o de dispositivo con fines de seguimiento;</li>
     <li>cuentas de usuario ni contraseñas — la aplicación no tiene inicio de sesión.</li>
   </ul>
-  <p>El juego en sí <b>no contiene código de red</b> y no realiza ninguna conexión propia:
-  no hay servidores del juego a los que enviar nada. La aplicación declara los permisos
-  INTERNET y ACCESS_NETWORK_STATE únicamente porque los exige el sistema de cobros de
-  Google Play que incorpora (sección 4); ese sistema solo habla con Google Play, y
-  mientras no haya artículos de dinero real publicados permanece inactivo.</p>
+  <p>El juego <b>sí hace conexiones de red</b>, pero limitadas a tres cosas concretas, y ninguna envía datos personales tuyos:</p><ul><li>un GET automático, al abrir el juego, a un fichero público y fijo alojado en Firebase (Google), para comprobar si hay una actualización obligatoria disponible. No manda nada tuyo — ni identificador, ni partida — solo pide ese fichero. Como con cualquier servidor web, Firebase recibe por fuerza tu dirección IP y la hora de la petición; nada más, y esa información no la vemos ni la guardamos nosotros;</li><li>el sistema de cobros de Google Play (sección 4), que solo habla con Google Play y permanece inactivo mientras no haya artículos de dinero real publicados;</li><li>el guardado de tu progreso en la nube (sección 5), <b>solo si tú lo activas</b> — el juego te lo pregunta antes y nunca lo hace por su cuenta.</li></ul><p>La aplicación declara los permisos INTERNET y ACCESS_NETWORK_STATE por estas tres razones.</p>
 
   <h2>2. Datos que se guardan en tu propio teléfono</h2>
   <p>El juego guarda tu progreso (nivel alcanzado, mejoras, monedas del juego como
@@ -157,9 +151,7 @@
   </ul>
 
   <h2>3. Publicidad, analítica y SDK de terceros</h2>
-  <p>Ninguno. La aplicación no incluye anuncios, no incluye herramientas de analítica de
-  jugadores (Firebase, Crashlytics, AppsFlyer u otras) ni ningún kit de terceros que
-  recoja datos.</p>
+  <p>Ninguno. La aplicación no incluye anuncios, no incluye herramientas de analítica de jugadores (Crashlytics, AppsFlyer u otras) ni ningún kit de seguimiento de terceros. El único contacto con Firebase es el GET descrito en la sección 1 (una petición de un fichero de texto público, sin SDK instalado y sin recogida de datos de comportamiento) — no es analítica ni publicidad.</p>
 
   <h2>4. Compras dentro de la aplicación</h2>
   <p>El juego tiene una tienda con pases, skins y artículos. Conviene separar lo que hay
@@ -188,37 +180,33 @@
   <p class="nota">Esta política se actualizará <b>antes</b> de que se active el primer cobro
   real, no después.</p>
 
-  <h2>5. Pantalla de diagnóstico</h2>
+  <h2>5. Guardado en la nube (Google Play Games Services)</h2><p>El juego puede guardar tu progreso en la nube usando Google Play Games Services, <b>pero solo si tú lo activas</b>: al abrir el juego se te pregunta antes de hacer nada, y si dices que no (o no contestas), el juego sigue funcionando enteramente en local, igual que siempre.</p><p>Si aceptas:</p><ul><li>se te pedirá iniciar sesión con tu cuenta de Google (la pantalla la pinta Google, no nosotros);</li><li>tu progreso (nivel, mejoras, monedas del juego, logros) se sube como «partida guardada» de Play Games, asociado a tu cuenta de Google;</li><li>quien ve y guarda esos datos es Google, bajo su propia <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad</a> — nosotros no tenemos acceso a tu cuenta de Google, solo al bloque de progreso que Play Games nos devuelve cuando lo pedimos;</li><li>puedes desactivarlo en cualquier momento desde Ajustes dentro del juego.</li></ul><p>Esto no envía tu nombre, correo ni ningún otro dato personal a nuestros propios sistemas: seguimos sin tener servidores propios que reciban nada de ti.</p><h2>6. Pantalla de diagnóstico</h2>
   <p>El juego incluye una pantalla de diagnóstico de rendimiento que puede mostrar
   <b>en pantalla</b> el modelo de tu móvil y la versión de Android, para ayudar a depurar
   problemas de fluidez. Esa información se calcula solo en memoria y se muestra en tu
   pantalla: no se recopila, no se guarda y no se envía automáticamente. Solo sale del
   dispositivo si tú decides copiar el texto y enviarlo voluntariamente al desarrollador.</p>
 
-  <h2>6. Menores de edad</h2>
+  <h2>7. Menores de edad</h2>
   <p>La aplicación es apta para todos los públicos y, al no recoger ningún dato personal,
   cumple por diseño con las normas de protección de menores (COPPA, RGPD-K y la política
   de Familias de Google Play). No se dirige publicidad ni se crea perfil de ningún
   usuario, menor o adulto.</p>
 
-  <h2>7. Tus derechos</h2>
+  <h2>8. Tus derechos</h2>
   <p>Como no tratamos ningún dato personal tuyo, no hay perfiles que consultar, rectificar
   ni suprimir en nuestros sistemas. Puedes borrar todo el progreso local en cualquier
   momento desde los ajustes de Android (Aplicaciones › Caos Total: Neon › Borrar datos) o
   desinstalando la aplicación.</p>
 
-  <h2>8. Cambios en esta política</h2>
-  <p>Si en el futuro la aplicación añade funciones que traten datos —por ejemplo compras,
-  cuentas o guardado en la nube— actualizaremos esta política <b>antes</b> de activarlas y
-  reflejaremos el cambio en la ficha de Google Play. La fecha de «Última actualización»
-  indica la versión vigente.</p>
+  <h2>9. Cambios en esta política</h2><p>Si en el futuro la aplicación añade más funciones que traten datos —por ejemplo, cobros reales— actualizaremos esta política <b>antes</b> de activarlas y reflejaremos el cambio en la ficha de Google Play. La fecha de «Última actualización» indica la versión vigente.</p>
 
-  <h2>9. Contacto</h2>
+  <h2>10. Contacto</h2>
   <p>Para cualquier duda sobre privacidad:
   <a href="mailto:amina.comunicaciones@gmail.com">amina.comunicaciones@gmail.com</a></p>
 
   <footer>
-    Caos Total: Neon — un juego de Amina Estudio · Documento vigente desde el 7 de agosto de 2026.
+    Caos Total: Neon — un juego de Amina Estudio · Documento vigente desde el 17 de agosto de 2026.
   </footer>
 
 </div>
