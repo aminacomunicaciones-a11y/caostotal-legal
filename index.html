@@ -153,7 +153,10 @@
     <strong>alias público de jugador y tu puntuación</strong> aparecen en una clasificación
     semanal pública que gestiona Google; todo lo demás (comprobar actualizaciones, cobros de
     Google Play, guardado opcional en la nube) son conexiones limitadas que no envían
-    información personal identificable. El resto del documento lo explica en detalle.</p>
+    información personal identificable. Desde la versión 6.82 el juego envía además
+    <strong>informes automáticos cuando se cierra solo</strong> (sección 3): son la traza
+    técnica del fallo, sin nombre, sin cuenta y sin nada de tu partida. El resto del
+    documento lo explica en detalle.</p>
   </div>
 
   <h2>1. Qué datos recogemos</h2>
@@ -163,10 +166,14 @@
     <li>nombre, correo electrónico, teléfono ni edad;</li>
     <li>ubicación (GPS o de red);</li>
     <li>contactos, fotos, micrófono ni cámara;</li>
-    <li>identificadores de publicidad o de dispositivo con fines de seguimiento;</li>
+    <li>identificadores de publicidad (el <i>Advertising ID</i> de Android) ni
+      identificadores de dispositivo con fines de seguimiento. El componente de informes
+      de fallo de la sección 3 genera dos identificadores aleatorios propios, que nacen
+      con la instalación y mueren con ella: no son tu cuenta, no te siguen entre
+      aplicaciones y allí se explican uno a uno;</li>
     <li>cuentas de usuario ni contraseñas propias — la aplicación no tiene su propio inicio de sesión.</li>
   </ul>
-  <p>El juego <b>sí hace conexiones de red</b>, limitadas a estas cuatro:</p>
+  <p>El juego <b>sí hace conexiones de red</b>, limitadas a estas cinco:</p>
   <ul>
     <li>un GET automático, al abrir el juego, a un fichero público y fijo alojado en
       Firebase (Google), para comprobar si hay una actualización obligatoria disponible.
@@ -181,6 +188,9 @@
     <li>Google Play Juegos, <b>solo si tú inicias sesión</b>: sirve para el guardado en la
       nube (sección 5) y para el ranking semanal (sección 6). Sin sesión, ninguna de las
       dos cosas toca la red.</li>
+    <li>el envío de un <b>informe de fallo</b> a Firebase Crashlytics (Google) cuando el
+      juego se cierra solo, y <b>solo entonces</b>: no hay ningún envío periódico ni
+      ninguna medición de lo que haces jugando. Está detallado en la sección 3.</li>
   </ul>
   <p>La aplicación declara los permisos INTERNET y ACCESS_NETWORK_STATE por estas razones.</p>
 
@@ -195,13 +205,62 @@
     <li>se elimina si desinstalas la aplicación o borras sus datos.</li>
   </ul>
 
-  <h2>3. Publicidad, analítica y SDK de terceros</h2>
-  <p>Ninguno. La aplicación no incluye anuncios, no incluye herramientas de analítica de
-  jugadores (Crashlytics, AppsFlyer u otras) ni ningún kit de seguimiento de terceros.
-  Lleva dentro dos componentes de Google, y solo dos: el cobro de Google Play (sección 4)
-  y Play Juegos Services (secciones 5 y 6). El único contacto con Firebase son los GET
-  descritos en la sección 1 (peticiones de ficheros de texto públicos, sin SDK instalado
-  y sin recogida de datos de comportamiento) — no es analítica ni publicidad.</p>
+  <h2>3. Publicidad, analítica e informes de fallo</h2>
+  <p><b>Publicidad: ninguna.</b> La aplicación no muestra anuncios y no lleva ningún kit
+  publicitario.</p>
+  <p><b>Analítica de jugadores: ninguna.</b> No lleva Google Analytics para Firebase, ni
+  AppsFlyer, ni ninguna herramienta que mida qué haces dentro del juego, cuánto juegas o
+  por dónde te vas. No se construye ningún perfil tuyo. Esto es comprobable en el propio
+  paquete: el módulo de Analytics está <b>quitado a mano</b> de la lista de dependencias
+  del juego, aunque el kit de Google lo ofreciera de serie.</p>
+  <p><b>Informes de fallo: sí, desde la versión 6.82.</b> El juego incluye
+  <b>Firebase Crashlytics</b> (Google). Sirve para una sola cosa: cuando el juego se
+  cierra solo o se queda colgado, nos manda la traza técnica de ese fallo. Es la única
+  manera que tenemos de arreglar un cierre que le ocurre a alguien en un móvil que no
+  tenemos delante.</p>
+  <p><b>Solo después de que aceptes.</b> El componente viaja dentro del juego
+  <b>apagado</b>: la primera pantalla del juego te pide aceptar esta política y las
+  Condiciones de Uso, y hasta que pulsas «Acepto y entro» no se enciende ni envía nada.
+  No es una promesa de papel: el interruptor viene puesto a «false» en el propio
+  manifiesto de Android de la aplicación.</p>
+  <p><b>Qué va dentro de un informe de fallo, exactamente:</b></p>
+  <ul>
+    <li>la <b>traza del fallo</b>: en qué punto del programa reventó y la cadena de
+      llamadas que llevó hasta ahí, más el tipo y el mensaje del error;</li>
+    <li>el <b>estado del móvil y del juego</b> en ese instante: modelo y fabricante del
+      teléfono, versión de Android, memoria y almacenamiento libres, orientación de la
+      pantalla, si el sistema está modificado (<i>rooted</i>), si el juego estaba en
+      primer plano, y la versión del juego;</li>
+    <li>dos <b>identificadores aleatorios</b> que genera el propio componente de Google
+      — el «UUID de instalación de Crashlytics» y el «ID de instalación de Firebase» —,
+      cuyo único papel es que dos informes del mismo teléfono se puedan agrupar. No
+      salen de tu cuenta de Google, no son el identificador de publicidad, no te siguen
+      fuera de este juego y desaparecen si desinstalas la aplicación o borras sus datos;</li>
+    <li>la fecha y la hora del fallo y, como en cualquier conexión a cualquier servidor,
+      tu <b>dirección IP</b>, que recibe Google. Nosotros no la vemos.</li>
+  </ul>
+  <p><b>Qué NO va dentro, y por qué podemos afirmarlo:</b></p>
+  <ul>
+    <li><b>nada que le pongamos nosotros.</b> El código del juego no le pasa a Crashlytics
+      ni un identificador propio, ni tu alias, ni tu progreso, ni «claves personalizadas»,
+      ni mensajes de seguimiento: las funciones que sirven para eso
+      (<code>SetUserId</code>, <code>SetCustomKey</code>, <code>Log</code>) no se llaman
+      en ninguna parte del juego. Lo único que el juego le dice a Crashlytics es
+      «enciéndete»;</li>
+    <li><b>ningún rastro de lo que estabas haciendo</b> en forma de eventos. Esas «migas
+      de pan» las aportaría Google Analytics, y Analytics no está en el juego;</li>
+    <li><b>ni ubicación, ni contactos, ni fotos, ni micrófono, ni cámara</b>: la
+      aplicación no pide esos permisos, así que no hay nada de eso que mandar;</li>
+    <li><b>ni tu partida</b>: el progreso guardado no entra en el informe.</li>
+  </ul>
+  <p><b>Adónde va y quién lo guarda.</b> El informe lo recibe Google (Firebase
+  Crashlytics), que lo trata como encargado nuestro y lo conserva según su propia
+  política de conservación. Nosotros lo leemos en la consola de Firebase, y solo para
+  arreglar el fallo. No se vende, no se cede a terceros y no se cruza con nada.</p>
+  <p><b>El resto de componentes de Google que lleva el juego</b> siguen siendo dos: el
+  cobro de Google Play (sección 4) y Play Juegos Services (secciones 5 y 6). El otro
+  contacto con Firebase son los GET descritos en la sección 1 — peticiones de ficheros
+  de texto públicos, sin recogida de datos de comportamiento.</p>
 
   <h2>4. Compras dentro de la aplicación</h2>
   <p>El juego tiene una tienda con skins y artículos, y <b>sí hay artículos de dinero
@@ -310,13 +369,23 @@
     <li><b>Salir de una lista de premios publicada:</b>
       <a href="mailto:aminansoporte@gmail.com">escríbenos</a> y retiramos tu
       identificador.</li>
+    <li><b>Dejar de enviar informes de fallo:</b> borrando los datos de la aplicación o
+      desinstalándola. Conviene saber que los informes ya enviados <b>no se pueden
+      buscar por persona</b>, precisamente porque no llevan ningún dato tuyo: los
+      identificadores que los acompañan son aleatorios y se pierden al borrar los datos,
+      así que no hay forma — ni nosotros ni Google — de relacionarlos contigo.</li>
   </ul>
   <p class="nota">Guía paso a paso para borrarlo todo: <a href="borrar-datos.html">borrar tu cuenta y tus datos</a>.</p>
 
   <h2>10. Cambios en esta política</h2>
-  <p>Esta versión añade el ranking semanal público (sección 6), estrena la versión en
-  inglés de este documento y publica las <a href="condiciones.html">Condiciones de
-  Uso</a> en esta misma web. Si el juego añade más funciones que traten datos o que
+  <p><b>Cambio del 20 de agosto de 2026 (juego v6.82):</b> la sección 3 se ha reescrito
+  entera. Hasta hoy decía que el juego no llevaba Crashlytics; desde la versión 6.82 sí
+  lo lleva, apagado hasta que aceptas, y solo para informes de fallo. La analítica de
+  jugadores sigue sin existir. Se ha corregido también la sección 1 (una quinta conexión
+  de red) y ampliado la sección 9 (cómo se dejan de enviar).</p>
+  <p>La versión anterior añadió el ranking semanal público (sección 6), estrenó la
+  versión en inglés de este documento y publicó las <a href="condiciones.html">Condiciones
+  de Uso</a> en esta misma web. Si el juego añade más funciones que traten datos o que
   cobren, lo actualizaremos aquí y en la ficha de Google Play. La fecha de «Última
   actualización» indica la versión vigente.</p>
 
@@ -343,7 +412,10 @@
     your <strong>public player alias and your score</strong> appear on a public weekly
     leaderboard run by Google; everything else (update checks, Google Play billing,
     optional cloud saving) is a limited connection that sends no personally identifiable
-    information. The rest of this document explains it in detail.</p>
+    information. Since version 6.82 the game also sends
+    <strong>automatic reports when it crashes</strong> (section 3): the technical trace of
+    the failure, with no name, no account and nothing from your save. The rest of this
+    document explains it in detail.</p>
   </div>
 
   <h2>1. What data we collect</h2>
@@ -353,10 +425,14 @@
     <li>name, email, phone number or age;</li>
     <li>location (GPS or network);</li>
     <li>contacts, photos, microphone or camera;</li>
-    <li>advertising or device identifiers used for tracking;</li>
+    <li>advertising identifiers (Android's <i>Advertising ID</i>) or device identifiers
+      used for tracking. The crash-reporting component in section 3 generates two random
+      identifiers of its own, which are born with the installation and die with it: they
+      are not your account, they do not follow you across applications, and they are
+      explained one by one there;</li>
     <li>user accounts or passwords of its own — the application has no sign-in of its own.</li>
   </ul>
-  <p>The game <b>does make network connections</b>, limited to these four:</p>
+  <p>The game <b>does make network connections</b>, limited to these five:</p>
   <ul>
     <li>an automatic GET, on opening, for a public, fixed file hosted on Firebase
       (Google), to check whether a mandatory update exists. It sends nothing of yours —
@@ -371,6 +447,9 @@
     <li>Google Play Games, <b>only if you sign in</b>: it serves cloud saving (section 5)
       and the weekly ranking (section 6). Without a session, neither touches the
       network.</li>
+    <li>sending a <b>crash report</b> to Firebase Crashlytics (Google) when the game
+      closes by itself, and <b>only then</b>: there is no periodic upload and no
+      measurement of what you do while playing. It is detailed in section 3.</li>
   </ul>
   <p>The application declares the INTERNET and ACCESS_NETWORK_STATE permissions for these reasons.</p>
 
@@ -385,13 +464,63 @@
     <li>is deleted if you uninstall the application or clear its data.</li>
   </ul>
 
-  <h2>3. Advertising, analytics and third-party SDKs</h2>
-  <p>None. The application includes no ads, no player-analytics tools (Crashlytics,
-  AppsFlyer or others) and no third-party tracking kit. It bundles two Google components,
-  and only two: Google Play billing (section 4) and Play Games Services (sections 5
-  and 6). The only contact with Firebase is the GETs described in section 1 (requests for
-  public text files, with no SDK installed and no behavioural data collected) — that is
-  neither analytics nor advertising.</p>
+  <h2>3. Advertising, analytics and crash reports</h2>
+  <p><b>Advertising: none.</b> The application shows no ads and bundles no advertising
+  kit.</p>
+  <p><b>Player analytics: none.</b> It does not bundle Google Analytics for Firebase, nor
+  AppsFlyer, nor any tool that measures what you do inside the game, how long you play or
+  where you drop off. No profile of you is built. This is verifiable in the package
+  itself: the Analytics module is <b>removed by hand</b> from the game's dependency list,
+  even though Google's kit offers it by default.</p>
+  <p><b>Crash reports: yes, since version 6.82.</b> The game includes
+  <b>Firebase Crashlytics</b> (Google). It serves one single purpose: when the game closes
+  by itself or freezes, it sends us the technical trace of that failure. It is the only
+  way we have of fixing a crash that happens to someone on a phone we do not have in front
+  of us.</p>
+  <p><b>Only after you accept.</b> The component travels inside the game <b>switched
+  off</b>: the game's first screen asks you to accept this policy and the Terms of Use,
+  and until you press “I accept and enter” it neither switches on nor sends anything.
+  This is not a paper promise: the switch ships set to “false” in the application's own
+  Android manifest.</p>
+  <p><b>What goes inside a crash report, exactly:</b></p>
+  <ul>
+    <li>the <b>failure trace</b>: at which point in the program it broke and the chain of
+      calls that led there, plus the type and the message of the error;</li>
+    <li>the <b>state of the phone and of the game</b> at that instant: phone model and
+      manufacturer, Android version, free memory and storage, screen orientation, whether
+      the system is modified (<i>rooted</i>), whether the game was in the foreground, and
+      the game version;</li>
+    <li>two <b>random identifiers</b> generated by Google's own component — the
+      “Crashlytics installation UUID” and the “Firebase installation ID” — whose only role
+      is to let two reports from the same phone be grouped together. They do not come from
+      your Google account, they are not the advertising identifier, they do not follow you
+      outside this game, and they disappear if you uninstall the application or clear its
+      data;</li>
+    <li>the date and time of the failure and, as with any connection to any server, your
+      <b>IP address</b>, which Google receives. We do not see it.</li>
+  </ul>
+  <p><b>What does NOT go inside, and why we can state it:</b></p>
+  <ul>
+    <li><b>nothing we add ourselves.</b> The game's code passes Crashlytics no identifier
+      of its own, no alias of yours, no progress, no “custom keys” and no breadcrumb
+      messages: the functions meant for that (<code>SetUserId</code>,
+      <code>SetCustomKey</code>, <code>Log</code>) are not called anywhere in the game.
+      The only thing the game tells Crashlytics is “switch on”;</li>
+    <li><b>no trace of what you were doing</b> in the form of events. Those breadcrumbs
+      would be contributed by Google Analytics, and Analytics is not in the game;</li>
+    <li><b>no location, no contacts, no photos, no microphone, no camera</b>: the
+      application does not request those permissions, so there is nothing of the sort to
+      send;</li>
+    <li><b>not your save</b>: your stored progress does not go into the report.</li>
+  </ul>
+  <p><b>Where it goes and who keeps it.</b> The report is received by Google (Firebase
+  Crashlytics), which processes it as our processor and keeps it under its own retention
+  policy. We read it in the Firebase console, and only to fix the failure. It is not sold,
+  not passed to third parties and not cross-referenced with anything.</p>
+  <p><b>The rest of the Google components the game bundles</b> are still two: Google Play
+  billing (section 4) and Play Games Services (sections 5 and 6). The other contact with
+  Firebase is the GETs described in section 1 — requests for public text files, with no
+  behavioural data collected.</p>
 
   <h2>4. In-app purchases</h2>
   <p>The game has a shop with skins and items, and there <b>are real-money items</b>: the
@@ -498,13 +627,23 @@
     <li><b>Leave a published prize list:</b>
       <a href="mailto:aminansoporte@gmail.com">write to us</a> and we remove your
       identifier.</li>
+    <li><b>Stop sending crash reports:</b> by clearing the application's data or
+      uninstalling it. It is worth knowing that reports already sent <b>cannot be looked
+      up per person</b>, precisely because they carry no data of yours: the identifiers
+      that accompany them are random and are lost when the data is cleared, so there is no
+      way — neither for us nor for Google — to relate them to you.</li>
   </ul>
   <p class="nota">Step-by-step guide to deleting everything: <a href="borrar-datos.html">delete your account and your data</a>.</p>
 
   <h2>10. Changes to this policy</h2>
-  <p>This version adds the public weekly ranking (section 6), introduces the English
-  version of this document and publishes the <a href="condiciones.html#en">Terms of
-  Use</a> on this same site. If the game adds further features that process data or that
+  <p><b>Change of 20 August 2026 (game v6.82):</b> section 3 has been rewritten in full.
+  Until today it said the game did not bundle Crashlytics; since version 6.82 it does,
+  switched off until you accept, and only for crash reports. Player analytics still does
+  not exist. Section 1 has also been corrected (a fifth network connection) and section 9
+  extended (how to stop the sending).</p>
+  <p>The previous version added the public weekly ranking (section 6), introduced the
+  English version of this document and published the
+  <a href="condiciones.html#en">Terms of Use</a> on this same site. If the game adds further features that process data or that
   charge money, we will update it here and on the Google Play listing. The “Last
   updated” date indicates the version in force.</p>
 
