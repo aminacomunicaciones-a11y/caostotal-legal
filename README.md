@@ -1,3 +1,3 @@
-# Caos Total: Neon — documentos legales
+# Caos Total Neon — documentos legales
 
-Política de privacidad pública de Caos Total: Neon (Aminan).
+Política de privacidad pública de Caos Total Neon (Aminan).
