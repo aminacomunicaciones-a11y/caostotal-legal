@@ -4,7 +4,7 @@
 <title>Política de Privacidad — Caos Total Neon</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://aminacomunicaciones-a11y.github.io/caostotal-legal/privacidad.html">
-<meta name="description" content="Política de privacidad de Caos Total Neon. Sin anuncios ni analítica; ranking semanal opcional con Google Play Juegos, cobros de Google Play y guardado opcional en la nube. / Privacy policy of Caos Total Neon, in Spanish and English.">
+<meta name="description" content="Política de privacidad de Caos Total Neon. Anuncios de Google AdMob y sin analítica de jugadores; ranking semanal opcional con Google Play Juegos, cobros de Google Play y guardado opcional en la nube. / Privacy policy of Caos Total Neon, in Spanish and English.">
 
 <!-- v6.81 — EL ICONO DE AMINAN. Va EMBEBIDO en base64, como el logo del
      pie: estas paginas son AUTONOMAS a proposito (cero ficheros aparte, cero
@@ -145,8 +145,8 @@
   <div id="l-es" lang="es">
 
   <ul class="ficha">
-    <li><b>Última actualización:</b> 20 de agosto de 2026</li>
-    <li><b>Responsable:</b> Aminan</li>
+    <li><b>Última actualización:</b> 5 de noviembre de 2026</li>
+    <li><b>Responsable:</b> Faussi Bissani (nombre comercial «Aminan»)</li>
     <li><b>Aplicación:</b> Caos Total Neon <span class="nota">(com.caostotalgames.caostotal)</span></li>
     <li><b>Contacto:</b> <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a></li>
     <li><b>Condiciones de Uso:</b> <a href="condiciones.html">condiciones.html</a></li>
@@ -160,8 +160,10 @@
     Google Play, guardado opcional en la nube) son conexiones limitadas que no envían
     información personal identificable. Desde la versión 6.82 el juego envía además
     <strong>informes automáticos cuando se cierra solo</strong> (sección 3): son la traza
-    técnica del fallo, sin nombre, sin cuenta y sin nada de tu partida. El resto del
-    documento lo explica en detalle.</p>
+    técnica del fallo, sin nombre, sin cuenta y sin nada de tu partida. Desde la versión
+    7.30 el juego <strong>muestra anuncios</strong> de Google AdMob en tres momentos —uno
+    corto al terminar una partida y otros dos, voluntarios y con recompensa, para revivir
+    o para doblar la Esencia ganada— y en ningún sitio más (sección 3). El resto del documento lo explica en detalle.</p>
   </div>
 
   <h2>1. Qué datos recogemos</h2>
@@ -171,14 +173,18 @@
     <li>nombre, correo electrónico, teléfono ni edad;</li>
     <li>ubicación (GPS o de red);</li>
     <li>contactos, fotos, micrófono ni cámara;</li>
-    <li>identificadores de publicidad (el <i>Advertising ID</i> de Android) ni
-      identificadores de dispositivo con fines de seguimiento. El componente de informes
-      de fallo de la sección 3 genera dos identificadores aleatorios propios, que nacen
-      con la instalación y mueren con ella: no son tu cuenta, no te siguen entre
-      aplicaciones y allí se explican uno a uno;</li>
+    <li>identificadores de dispositivo con fines de seguimiento por nuestra parte.
+      <b>Ojo al matiz, que cambió en la versión 7.30:</b> el juego muestra anuncios, y el
+      componente de Google que los sirve <b>sí usa el <i>Advertising ID</i> de Android</b>.
+      Lo usa Google, no nosotros: a nosotros no nos llega ni ese identificador ni ningún
+      dato tuyo. Está explicado en la sección 3, y allí se dice cómo borrarlo o
+      desactivarlo desde los ajustes del móvil. El componente de informes de fallo de esa
+      misma sección genera además dos identificadores aleatorios propios, que nacen con la
+      instalación y mueren con ella: no son tu cuenta, no te siguen entre aplicaciones y
+      allí se explican uno a uno;</li>
     <li>cuentas de usuario ni contraseñas propias — la aplicación no tiene su propio inicio de sesión.</li>
   </ul>
-  <p>El juego <b>sí hace conexiones de red</b>, limitadas a estas cinco:</p>
+  <p>El juego <b>sí hace conexiones de red</b>, limitadas a estas seis:</p>
   <ul>
     <li>un GET automático, al abrir el juego, a un fichero público y fijo alojado en
       Firebase (Google), para comprobar si hay una actualización obligatoria disponible.
@@ -196,6 +202,9 @@
     <li>el envío de un <b>informe de fallo</b> a Firebase Crashlytics (Google) cuando el
       juego se cierra solo, y <b>solo entonces</b>: no hay ningún envío periódico ni
       ninguna medición de lo que haces jugando. Está detallado en la sección 3.</li>
+    <li>las peticiones de <b>Google AdMob</b> para traer los anuncios de la sección 3, y
+      las del formulario de consentimiento de Google que las precede. Solo hablan con
+      Google, y solo después de que hayas aceptado esta política.</li>
   </ul>
   <p>La aplicación declara los permisos INTERNET y ACCESS_NETWORK_STATE por estas razones.</p>
 
@@ -211,8 +220,40 @@
   </ul>
 
   <h2>3. Publicidad, analítica e informes de fallo</h2>
-  <p><b>Publicidad: ninguna.</b> La aplicación no muestra anuncios y no lleva ningún kit
-  publicitario.</p>
+  <p><b>Publicidad: sí, desde la versión 7.30, y solo en tres momentos.</b> El juego
+  incluye <b>Google AdMob</b>. Los anuncios aparecen únicamente aquí:</p>
+  <ul>
+    <li>un <b>anuncio corto al terminar una partida</b>, en la pantalla de resultado,
+      cuando pulsas «Reintentar» o «Menú»;</li>
+    <li>un <b>anuncio con recompensa</b>, de unos 30 segundos, que puedes elegir ver
+      para <b>revivir una vez</b> con la vida llena. Es siempre voluntario: si dices que
+      no, la partida termina igual que terminaría sin anuncios;</li>
+    <li>un <b>anuncio con recompensa</b>, voluntario, que puedes elegir ver en la pantalla
+      de fin de partida para <b>doblar la Esencia ganada</b>; si no lo ves, la partida
+      termina igual.</li>
+  </ul>
+  <p><b>Y en ningún otro sitio:</b> no hay anuncios en la pantalla de inicio, ni al
+  elegir personaje, ni al empezar la partida, ni durante la partida, ni banners fijos en
+  ninguna pantalla. El anuncio corto sale al terminar cada partida; cuánto dura y si se
+  puede saltar lo decide Google, no el juego.</p>
+  <p><b>Qué datos hay detrás de un anuncio.</b> Para elegir qué anuncio enseñarte, Google
+  usa el <b>identificador de publicidad de Android</b> de tu teléfono, junto con datos
+  técnicos del propio dispositivo y tu dirección IP. Ese identificador <b>lo gestiona
+  Google, no nosotros</b>: nosotros no lo recibimos, no lo guardamos y no lo cruzamos con
+  tu partida ni con tu cuenta. Puedes borrarlo o desactivar la personalización cuando
+  quieras desde <i>Ajustes › Google › Anuncios</i> de tu teléfono. Google trata esos datos
+  como responsable propio; su política es la
+  <a href="https://policies.google.com/technologies/partner-sites">política de privacidad
+  de Google</a>.</p>
+  <p><b>Tú decides si los anuncios son personalizados.</b> La primera vez que el juego va
+  a pedir un anuncio te enseña el <b>formulario de consentimiento de Google</b> (User
+  Messaging Platform), que es el que recoge tu elección para el RGPD. Puedes cambiarla
+  después, en cualquier momento, dentro del juego, en <i>Ajustes › Privacidad y uso ›
+  pestaña PRIVACIDAD</i>. Si dices que no a la personalización seguirás viendo anuncios, pero no elegidos
+  a partir de tu perfil.</p>
+  <p><b>Contenido de los anuncios.</b> El juego está declarado para mayores de 13 años y
+  pide a Google que limite los anuncios a la clasificación <i>Teen</i>; no está dirigido
+  a niños y no participa en el programa Google Play para Familias.</p>
   <p><b>Analítica de jugadores: ninguna.</b> No lleva Google Analytics para Firebase, ni
   AppsFlyer, ni ninguna herramienta que mida qué haces dentro del juego, cuánto juegas o
   por dónde te vas. No se construye ningún perfil tuyo. Esto es comprobable en el propio
@@ -262,8 +303,9 @@
   Crashlytics), que lo trata como encargado nuestro y lo conserva según su propia
   política de conservación. Nosotros lo leemos en la consola de Firebase, y solo para
   arreglar el fallo. No se vende, no se cede a terceros y no se cruza con nada.</p>
-  <p><b>El resto de componentes de Google que lleva el juego</b> siguen siendo dos: el
-  cobro de Google Play (sección 4) y Play Juegos Services (secciones 5 y 6). El otro
+  <p><b>El resto de componentes de Google que lleva el juego</b> son tres: AdMob (arriba,
+  en esta misma sección), el cobro de Google Play (sección 4) y Play Juegos Services
+  (secciones 5 y 6). El otro
   contacto con Firebase son los GET descritos en la sección 1 — peticiones de ficheros
   de texto públicos, sin recogida de datos de comportamiento.</p>
 
@@ -351,9 +393,11 @@
   dispositivo si tú decides copiar el texto y enviarlo voluntariamente al desarrollador.</p>
 
   <h2>8. Menores de edad</h2>
-  <p>La aplicación es apta para todos los públicos. No recogemos datos personales, no se
-  dirige publicidad y no se crea perfil de ningún usuario, menor o adulto. El inicio de
-  sesión de Play Juegos usa la cuenta de Google que ya está en el teléfono y queda sujeto
+  <p><b>La aplicación está dirigida a mayores de 13 años.</b> No está dirigida a niños y
+  no participa en el programa Google Play para Familias. Nosotros no recogemos datos
+  personales ni construimos perfil de nadie; la publicidad la sirve Google AdMob con la
+  clasificación de contenido limitada a <i>Teen</i>, y quien decide si es personalizada
+  eres tú, en el formulario descrito en la sección 3. El inicio de sesión de Play Juegos usa la cuenta de Google que ya está en el teléfono y queda sujeto
   a las normas de cuentas y de familia de Google: en cuentas infantiles es Google quien
   controla si Play Juegos está disponible y con qué alias. La clasificación semanal solo
   muestra ese alias público (sección 6). Las compras de dinero real las cobra y las
@@ -382,7 +426,103 @@
   </ul>
   <p class="nota">Guía paso a paso para borrarlo todo: <a href="borrar-datos.html">borrar tu cuenta y tus datos</a>.</p>
 
-  <h2>10. Cambios en esta política</h2>
+  <h2>10. Información legal sobre protección de datos</h2>
+  <p>Este apartado reúne, en un solo sitio, la información que exige el Reglamento
+  General de Protección de Datos (RGPD) y la ley española (LOPDGDD). Lo que dice no
+  cambia nada de lo explicado arriba: lo ordena.</p>
+  <p><b>Responsable del tratamiento.</b> Faussi Bissani, que publica el juego con el
+  nombre comercial «Aminan». Contacto para cualquier asunto de privacidad:
+  <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a>.</p>
+  <p><b>Para qué se usan los datos y con qué base legal:</b></p>
+  <ul>
+    <li><b>Comprobar si hay una actualización obligatoria y descargar la lista de
+      premios</b> (sección 1). Solo llega a Google tu dirección IP, como en cualquier
+      conexión. Base legal: interés legítimo en que el juego funcione y sea seguro
+      (art. 6.1.f RGPD).</li>
+    <li><b>Informes de fallo</b> con Firebase Crashlytics (sección 3). Base legal: tu
+      consentimiento (art. 6.1.a RGPD), que das al pulsar «Acepto y entro». Puedes
+      retirarlo como se explica en la sección 9.</li>
+    <li><b>Anuncios personalizados</b> con Google AdMob (sección 3). Base legal: tu
+      consentimiento (art. 6.1.a RGPD), que das o niegas en el formulario de Google y
+      puedes cambiar en Ajustes › Privacidad y uso.</li>
+    <li><b>Anuncios no personalizados.</b> Base legal: interés legítimo en financiar un
+      juego gratuito (art. 6.1.f RGPD). Google los sirve con datos limitados, para
+      contar impresiones y evitar el fraude.</li>
+    <li><b>Compras dentro de la aplicación</b> (sección 4). Base legal: el contrato que
+      aceptas al comprar, es decir, las <a href="condiciones.html">Condiciones de
+      Uso</a> (art. 6.1.b RGPD). El pago lo trata Google Play.</li>
+    <li><b>Guardado en la nube y ranking semanal</b> (secciones 5 y 6). Solo se activan
+      si inicias sesión con Play Juegos. Base legal: prestarte el servicio que pides
+      (art. 6.1.b RGPD). Aparecer en la clasificación pública es voluntario y lo dejas
+      de hacer cerrando la sesión.</li>
+    <li><b>Publicar la lista de ganadores</b> (sección 6), para que el juego te
+      entregue el premio. Base legal: el contrato (art. 6.1.b RGPD).</li>
+    <li><b>Responder a lo que nos escribas</b> por correo. Base legal: tu
+      consentimiento al escribirnos y nuestro interés legítimo en atenderte
+      (arts. 6.1.a y 6.1.f RGPD).</li>
+  </ul>
+  <p><b>Cuánto tiempo se guardan:</b></p>
+  <ul>
+    <li><b>Progreso en tu móvil:</b> hasta que borres los datos de la aplicación o la
+      desinstales.</li>
+    <li><b>Copia en la nube y puntuaciones del ranking:</b> en tu cuenta de Google,
+      hasta que las borres desde Play Juegos.</li>
+    <li><b>Informes de fallo:</b> Firebase Crashlytics los conserva 90 días y después
+      los borra.</li>
+    <li><b>Lista de ganadores:</b> mientras haga falta para entregar los premios de esa
+      semana, o hasta que nos pidas que retiremos tu identificador.</li>
+    <li><b>Correos que nos envíes:</b> el tiempo necesario para responderte y para
+      atender cualquier reclamación que pudiera derivarse.</li>
+    <li><b>Datos de anuncios y de pagos:</b> los conserva Google según su propia
+      política, porque los trata como responsable.</li>
+  </ul>
+  <p><b>Quién más recibe datos.</b> Solo Google, según el servicio:</p>
+  <ul>
+    <li>Google AdMob y su formulario de consentimiento (anuncios);</li>
+    <li>Firebase Crashlytics (informes de fallo) y Firebase Realtime Database (los dos
+      ficheros públicos de la sección 1);</li>
+    <li>Google Play (cobros) y Google Play Games Services (nube y ranking).</li>
+  </ul>
+  <p>Para Crashlytics y la base de datos, Google trabaja <b>por nuestra cuenta</b> como
+  encargado del tratamiento. Para los anuncios, los cobros y Play Juegos, Google decide
+  por sí mismo y es <b>responsable</b>, con su propia
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política
+  de privacidad</a>. No vendemos ni cedemos datos a nadie más.</p>
+  <p><b>Transferencias fuera de Europa.</b> Google puede tratar datos en Estados Unidos
+  y en otros países. Esas transferencias se amparan en el Marco de Privacidad de Datos
+  UE-EE. UU., en el que Google LLC está certificada, y en las cláusulas contractuales
+  tipo aprobadas por la Comisión Europea.</p>
+  <p><b>Decisiones automatizadas.</b> Nosotros no tomamos decisiones automatizadas ni
+  hacemos perfiles sobre ti. La elección de anuncios la hace Google, y si es
+  personalizada o no lo decides tú.</p>
+  <p><b>Edad.</b> La aplicación está dirigida a mayores de 13 años (sección 8). En
+  España, si tienes menos de 14 años, el consentimiento para los anuncios
+  personalizados debe darlo tu madre, tu padre o tu tutor (art. 7 LOPDGDD).</p>
+  <p><b>Tus derechos.</b> Puedes pedir acceso a tus datos, su rectificación, su
+  supresión, la limitación de su tratamiento y su portabilidad, oponerte a que se
+  traten y retirar tu consentimiento cuando quieras, sin que eso afecte a lo que ya se
+  hizo antes. Escríbenos a
+  <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a> y te
+  responderemos en un plazo máximo de un mes. Como casi todo lo vive en tu cuenta de
+  Google o en tu móvil, la sección 9 explica cómo hacerlo tú directamente. Si crees que
+  no hemos atendido bien tu petición, puedes reclamar ante la
+  <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de
+  Protección de Datos</a>.</p>
+
+  <h2>11. Cambios en esta política</h2>
+  <p><b>Cambio del 5 de noviembre de 2026:</b> se añade la sección 10, con la información legal completa (responsable, bases legales, plazos de conservación, destinatarios, transferencias y derechos, incluida la reclamación ante la AEPD). El funcionamiento del juego no cambia.</p>
+  <p><b>Cambio del 5 de septiembre de 2026 (juego v7.53):</b> se añade un <b>tercer
+  anuncio</b>, siempre voluntario, para doblar la Esencia al terminar la partida.</p>
+  <p><b>Cambio del 5 de septiembre de 2026 (juego v7.51):</b> el anuncio corto de la
+  sección 3 <b>sale al terminar cada partida</b>. Hasta ahora había un tope (nunca en la
+  primera partida de la sesión, luego como mucho una de cada dos); ese tope desaparece. Los
+  sitios donde salen anuncios, y los sitios donde no, no cambian.</p>
+  <p><b>Cambio del 29 de agosto de 2026 (juego v7.30):</b> el juego <b>pasa a llevar
+  publicidad</b>, cosa que antes no hacía. La sección 3 explica dónde salen los anuncios
+  —al terminar una partida y, si tú quieres, para revivir; el tercero, para doblar la
+  Esencia, llegó en la v7.53— y en qué sitios no salen. Se han corregido también la sección 1 (el identificador de publicidad
+  y una sexta conexión de red) y la sección 8 (el juego se declara para mayores de 13
+  años). Los informes de fallo y la ausencia de analítica de jugadores no cambian.</p>
   <p><b>Cambio del 20 de agosto de 2026 (juego v6.82):</b> la sección 3 se ha reescrito
   entera. Hasta hoy decía que el juego no llevaba Crashlytics; desde la versión 6.82 sí
   lo lleva, apagado hasta que aceptas, y solo para informes de fallo. La analítica de
@@ -394,7 +534,7 @@
   cobren, lo actualizaremos aquí y en la ficha de Google Play. La fecha de «Última
   actualización» indica la versión vigente.</p>
 
-  <h2>11. Contacto</h2>
+  <h2>12. Contacto</h2>
   <p>Para cualquier duda sobre privacidad:
   <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a></p>
 
@@ -404,8 +544,8 @@
   <div id="l-en" lang="en" hidden>
 
   <ul class="ficha">
-    <li><b>Last updated:</b> 20 August 2026</li>
-    <li><b>Data controller:</b> Aminan</li>
+    <li><b>Last updated:</b> 5 November 2026</li>
+    <li><b>Data controller:</b> Faussi Bissani (trade name “Aminan”)</li>
     <li><b>Application:</b> Caos Total Neon <span class="nota">(com.caostotalgames.caostotal)</span></li>
     <li><b>Contact:</b> <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a></li>
     <li><b>Terms of Use:</b> <a href="condiciones.html#en">condiciones.html</a></li>
@@ -419,8 +559,10 @@
     optional cloud saving) is a limited connection that sends no personally identifiable
     information. Since version 6.82 the game also sends
     <strong>automatic reports when it crashes</strong> (section 3): the technical trace of
-    the failure, with no name, no account and nothing from your save. The rest of this
-    document explains it in detail.</p>
+    the failure, with no name, no account and nothing from your save. Since version 7.30
+    the game <strong>shows ads</strong> from Google AdMob at three moments —a short one when
+    a run ends and two more, optional and rewarded, to revive or to double the Essence
+    earned— and nowhere else (section 3). The rest of this document explains it in detail.</p>
   </div>
 
   <h2>1. What data we collect</h2>
@@ -430,14 +572,18 @@
     <li>name, email, phone number or age;</li>
     <li>location (GPS or network);</li>
     <li>contacts, photos, microphone or camera;</li>
-    <li>advertising identifiers (Android's <i>Advertising ID</i>) or device identifiers
-      used for tracking. The crash-reporting component in section 3 generates two random
+    <li>device identifiers used for tracking by us. <b>Mind the nuance, which changed in
+      version 7.30:</b> the game shows ads, and the Google component that serves them
+      <b>does use Android's <i>Advertising ID</i></b>. Google uses it, we do not: neither
+      that identifier nor any data of yours reaches us. It is explained in section 3, and
+      that is where you will find how to reset or switch it off from your phone's settings.
+      The crash-reporting component in that same section also generates two random
       identifiers of its own, which are born with the installation and die with it: they
       are not your account, they do not follow you across applications, and they are
       explained one by one there;</li>
     <li>user accounts or passwords of its own — the application has no sign-in of its own.</li>
   </ul>
-  <p>The game <b>does make network connections</b>, limited to these five:</p>
+  <p>The game <b>does make network connections</b>, limited to these six:</p>
   <ul>
     <li>an automatic GET, on opening, for a public, fixed file hosted on Firebase
       (Google), to check whether a mandatory update exists. It sends nothing of yours —
@@ -455,6 +601,9 @@
     <li>sending a <b>crash report</b> to Firebase Crashlytics (Google) when the game
       closes by itself, and <b>only then</b>: there is no periodic upload and no
       measurement of what you do while playing. It is detailed in section 3.</li>
+    <li>the <b>Google AdMob</b> requests that fetch the ads of section 3, and those of the
+      Google consent form that precedes them. They talk only to Google, and only after you
+      have accepted this policy.</li>
   </ul>
   <p>The application declares the INTERNET and ACCESS_NETWORK_STATE permissions for these reasons.</p>
 
@@ -470,8 +619,38 @@
   </ul>
 
   <h2>3. Advertising, analytics and crash reports</h2>
-  <p><b>Advertising: none.</b> The application shows no ads and bundles no advertising
-  kit.</p>
+  <p><b>Advertising: yes, since version 7.30, and only at three moments.</b> The game
+  bundles <b>Google AdMob</b>. Ads appear here and nowhere else:</p>
+  <ul>
+    <li>a <b>short ad when a run ends</b>, on the results screen, when you press “Retry”
+      or “Menu”;</li>
+    <li>a <b>rewarded ad</b>, around 30 seconds long, that you may choose to watch in
+      order to <b>revive once</b> at full health. It is always voluntary: if you say no,
+      the run ends exactly as it would end without ads;</li>
+    <li>a <b>rewarded ad</b>, voluntary, that you can choose to watch on the results screen
+      to <b>double the Essence earned</b>; if you skip it, the run ends the same way.</li>
+  </ul>
+  <p><b>And nowhere else:</b> there are no ads on the start screen, none when choosing a
+  character, none when a run begins, none during a run, and no fixed banners on any
+  screen. The short ad appears at the end of every run; how long it lasts and whether it
+  can be skipped is decided by Google, not by the game.</p>
+  <p><b>What data sits behind an ad.</b> To choose which ad to show you, Google uses your
+  phone's <b>Android advertising ID</b>, together with technical data about the device
+  itself and your IP address. That identifier is <b>managed by Google, not by us</b>: we
+  do not receive it, we do not store it and we do not cross-reference it with your save
+  or your account. You can delete it or turn personalisation off at any time from
+  <i>Settings › Google › Ads</i> on your phone. Google processes that data as its own
+  controller; its policy is the
+  <a href="https://policies.google.com/technologies/partner-sites">Google privacy
+  policy</a>.</p>
+  <p><b>You decide whether ads are personalised.</b> The first time the game is about to
+  request an ad it shows you <b>Google's consent form</b> (User Messaging Platform),
+  which is what records your choice for the GDPR. You can change it afterwards, at any
+  time, inside the game, at <i>Settings › Privacy and usage › PRIVACY tab</i>. If you decline
+  personalisation you will still see ads, but not chosen from your profile.</p>
+  <p><b>Ad content.</b> The game is declared for ages 13 and over and asks Google to
+  limit ads to the <i>Teen</i> content rating; it is not directed to children and does
+  not take part in the Google Play Families programme.</p>
   <p><b>Player analytics: none.</b> It does not bundle Google Analytics for Firebase, nor
   AppsFlyer, nor any tool that measures what you do inside the game, how long you play or
   where you drop off. No profile of you is built. This is verifiable in the package
@@ -522,8 +701,9 @@
   Crashlytics), which processes it as our processor and keeps it under its own retention
   policy. We read it in the Firebase console, and only to fix the failure. It is not sold,
   not passed to third parties and not cross-referenced with anything.</p>
-  <p><b>The rest of the Google components the game bundles</b> are still two: Google Play
-  billing (section 4) and Play Games Services (sections 5 and 6). The other contact with
+  <p><b>The rest of the Google components the game bundles</b> are three: AdMob (above,
+  in this same section), Google Play billing (section 4) and Play Games Services
+  (sections 5 and 6). The other contact with
   Firebase is the GETs described in section 1 — requests for public text files, with no
   behavioural data collected.</p>
 
@@ -610,8 +790,11 @@
   decide to copy the text and send it to the developer yourself.</p>
 
   <h2>8. Minors</h2>
-  <p>The application is suitable for all audiences. We collect no personal data, we
-  target no advertising and we build nobody's profile, minor or adult. The Play Games
+  <p><b>The application is directed at ages 13 and over.</b> It is not directed to
+  children and does not take part in the Google Play Families programme. We collect no
+  personal data and build nobody's profile; the advertising is served by Google AdMob
+  with the content rating limited to <i>Teen</i>, and whether it is personalised is your
+  choice, in the form described in section 3. The Play Games
   sign-in uses the Google account already on the phone and is subject to Google's account
   and family rules: on child accounts it is Google that controls whether Play Games is
   available and under which alias. The weekly leaderboard only shows that public alias
@@ -640,7 +823,102 @@
   </ul>
   <p class="nota">Step-by-step guide to deleting everything: <a href="borrar-datos.html">delete your account and your data</a>.</p>
 
-  <h2>10. Changes to this policy</h2>
+  <h2>10. Legal information on data protection</h2>
+  <p>This section brings together, in one place, the information required by the
+  General Data Protection Regulation (GDPR) and Spanish law (LOPDGDD). It changes
+  nothing explained above: it puts it in order.</p>
+  <p><b>Data controller.</b> Faussi Bissani, who publishes the game under the trade
+  name “Aminan”. Contact for any privacy matter:
+  <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a>.</p>
+  <p><b>What the data is used for, and on what legal basis:</b></p>
+  <ul>
+    <li><b>Checking for a mandatory update and downloading the prize list</b>
+      (section 1). Only your IP address reaches Google, as with any connection. Legal
+      basis: legitimate interest in the game working and being secure (Art. 6(1)(f)
+      GDPR).</li>
+    <li><b>Crash reports</b> with Firebase Crashlytics (section 3). Legal basis: your
+      consent (Art. 6(1)(a) GDPR), given when you tap “Accept and enter”. You can
+      withdraw it as explained in section 9.</li>
+    <li><b>Personalised ads</b> with Google AdMob (section 3). Legal basis: your consent
+      (Art. 6(1)(a) GDPR), given or refused in Google's form and changeable in Settings
+      › Privacy and use.</li>
+    <li><b>Non-personalised ads.</b> Legal basis: legitimate interest in funding a free
+      game (Art. 6(1)(f) GDPR). Google serves them with limited data, to count
+      impressions and prevent fraud.</li>
+    <li><b>In-app purchases</b> (section 4). Legal basis: the contract you accept when
+      buying, that is, the <a href="condiciones.html#en">Terms of Use</a> (Art. 6(1)(b)
+      GDPR). Payment is handled by Google Play.</li>
+    <li><b>Cloud saving and weekly leaderboard</b> (sections 5 and 6). They only switch
+      on if you sign in with Play Games. Legal basis: providing the service you ask for
+      (Art. 6(1)(b) GDPR). Appearing on the public leaderboard is voluntary, and you
+      stop by signing out.</li>
+    <li><b>Publishing the winners list</b> (section 6), so the game can give you your
+      prize. Legal basis: the contract (Art. 6(1)(b) GDPR).</li>
+    <li><b>Answering your emails.</b> Legal basis: your consent when you write to us
+      and our legitimate interest in helping you (Art. 6(1)(a) and (f) GDPR).</li>
+  </ul>
+  <p><b>How long data is kept:</b></p>
+  <ul>
+    <li><b>Progress on your phone:</b> until you clear the app's data or uninstall
+      it.</li>
+    <li><b>Cloud copy and leaderboard scores:</b> in your Google account, until you
+      delete them from Play Games.</li>
+    <li><b>Crash reports:</b> Firebase Crashlytics keeps them for 90 days and then
+      deletes them.</li>
+    <li><b>Winners list:</b> for as long as needed to deliver that week's prizes, or
+      until you ask us to remove your identifier.</li>
+    <li><b>Emails you send us:</b> for as long as needed to answer you and to handle
+      any claim that might arise.</li>
+    <li><b>Ad and payment data:</b> kept by Google under its own policy, as it
+      processes them as a controller.</li>
+  </ul>
+  <p><b>Who else receives data.</b> Only Google, depending on the service:</p>
+  <ul>
+    <li>Google AdMob and its consent form (ads);</li>
+    <li>Firebase Crashlytics (crash reports) and Firebase Realtime Database (the two
+      public files in section 1);</li>
+    <li>Google Play (billing) and Google Play Games Services (cloud and
+      leaderboard).</li>
+  </ul>
+  <p>For Crashlytics and the database, Google acts <b>on our behalf</b> as a processor.
+  For ads, billing and Play Games, Google decides for itself and is a <b>controller</b>,
+  with its own <a href="https://policies.google.com/privacy" target="_blank"
+  rel="noopener">privacy policy</a>. We do not sell or pass data to anyone else.</p>
+  <p><b>Transfers outside Europe.</b> Google may process data in the United States and
+  other countries. These transfers rely on the EU-U.S. Data Privacy Framework, under
+  which Google LLC is certified, and on the standard contractual clauses approved by
+  the European Commission.</p>
+  <p><b>Automated decisions.</b> We make no automated decisions and build no profile of
+  you. Ad selection is done by Google, and whether it is personalised is up to
+  you.</p>
+  <p><b>Age.</b> The application is directed at ages 13 and over (section 8). In Spain,
+  if you are under 14, consent to personalised ads must be given by your parent or
+  guardian (Art. 7 LOPDGDD).</p>
+  <p><b>Your rights.</b> You can ask for access to your data, its rectification,
+  erasure, restriction of processing and portability, object to its processing, and
+  withdraw your consent at any time, without affecting what was done before. Write to
+  <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a> and we will reply
+  within one month at most. Since almost everything lives in your Google account or on
+  your phone, section 9 explains how to do it yourself directly. If you think we have
+  not handled your request properly, you can complain to the
+  <a href="https://www.aepd.es" target="_blank" rel="noopener">Spanish Data Protection
+  Agency (AEPD)</a>.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p><b>Change of 5 November 2026:</b> section 10 is added, with the full legal information (controller, legal bases, retention periods, recipients, transfers and rights, including the complaint to the AEPD). How the game works does not change.</p>
+  <p><b>Change of 5 September 2026 (game v7.53):</b> a <b>third ad</b> is added, always
+  voluntary, to double the Essence when a run ends.</p>
+  <p><b>Change of 5 September 2026 (game v7.51):</b> the short ad in section 3
+  <b>appears at the end of every run</b>. Until now there was a cap (never on the first
+  run of a session, then at most one run out of two); that cap is gone. The places
+  where ads appear, and the places where they do not, are unchanged.</p>
+  <p><b>Change of 29 August 2026 (game v7.30):</b> the game <b>now carries
+  advertising</b>, which it did not before. Section 3 explains where the ads appear —when a
+  run ends and, if you want it, to revive; the third, to double the Essence, arrived in
+  v7.53— and where they do not.
+  Section 1 has also been corrected (the advertising ID and a sixth network connection)
+  and section 8 (the game is declared for ages 13 and over). Crash reports and the
+  absence of player analytics do not change.</p>
   <p><b>Change of 20 August 2026 (game v6.82):</b> section 3 has been rewritten in full.
   Until today it said the game did not bundle Crashlytics; since version 6.82 it does,
   switched off until you accept, and only for crash reports. Player analytics still does
@@ -652,17 +930,17 @@
   charge money, we will update it here and on the Google Play listing. The “Last
   updated” date indicates the version in force.</p>
 
-  <h2>11. Contact</h2>
+  <h2>12. Contact</h2>
   <p>For any privacy question:
   <a href="mailto:aminansoporte@gmail.com">aminansoporte@gmail.com</a></p>
 
   </div>
 
   <footer id="pie-es">
-    Caos Total Neon — un juego de Aminan · Documento vigente desde el 20 de agosto de 2026.
+    Caos Total Neon — un juego de Aminan · Documento vigente desde el 5 de noviembre de 2026.
   </footer>
   <footer id="pie-en" hidden>
-    Caos Total Neon — a game by Aminan · Document in force since 20 August 2026.
+    Caos Total Neon — a game by Aminan · Document in force since 5 November 2026.
   </footer>
 
 </div>
